@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체중 변화 시뮬레이터</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>체중 변화 시뮬레이터</h1>
+    <p id="introText">슬라이더와 입력값을 조정하면 사람 이미지 위 점선으로 현재 체중과 예측 체중을 비교할 수 있습니다. 사람 이미지는 고정되어 있으며 점선만 이동합니다.</p>
+    <div class="container">
+        <div class="left">
+            <div id="personContainer">
+                <div class="personWrapper">
+                    <img id="personImage" src="사람이미지.png" alt="사람 모형">
+                    <svg id="personSvg" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid meet"></svg>
+                </div>
+            </div>
+            <p id="currentWeightDisplay">현재 체중: 0 kg</p>
+            <p id="calculatedWeightDisplay">예상 체중: 0.0 kg</p>
+            <p id="relationshipDisplay">칼로리와 운동 관계를 확인하세요.</p>
+            <p id="legendText">검정 점선: 현재 체중, 파란 점선/빨간 점선: 예측 체중</p>
+            <div id="warningMessage"></div>
+            <label for="daysSlider">기간 (일):</label>
+            <input type="range" id="daysSlider" min="0" max="700" value="0">
+            <span id="daysValue">0</span> 일
+            <button id="resetButton" type="button">초기화</button>
+        </div>
+        <div class="right">
+            <div class="inputGroup">
+                <label for="weightText">체중 (kg):</label>
+                <input type="number" id="weightText" min="0" max="150" value="65">
+                <input type="range" id="weightSlider" min="0" max="150" value="65">
+            </div>
+            <div class="inputGroup">
+                <label for="ageText">나이:</label>
+                <input type="number" id="ageText" min="0" max="120" value="25">
+                <input type="range" id="ageSlider" min="0" max="120" value="25">
+            </div>
+            <div class="inputGroup">
+                <label for="heightText">키 (cm):</label>
+                <input type="number" id="heightText" min="0" max="250" value="170">
+                <input type="range" id="heightSlider" min="0" max="250" value="170">
+            </div>
+            <div class="inputGroup">
+                <label for="gender">성별:</label>
+                <select id="gender">
+                    <option value="male" selected>남성</option>
+                    <option value="female">여성</option>
+                </select>
+            </div>
+            <div class="inputGroup">
+                <label for="caloriesText">매일 칼로리 (kcal):</label>
+                <input type="number" id="caloriesText" min="0" max="5000" value="0">
+                <input type="range" id="caloriesSlider" min="0" max="5000" value="0">
+            </div>
+            <div class="inputGroup">
+                <label for="exerciseTimeText">운동 시간 (시간/일):</label>
+                <input type="number" id="exerciseTimeText" min="0" max="10" step="0.1" value="1">
+                <input type="range" id="exerciseTimeSlider" min="0" max="10" step="0.1" value="1">
+            </div>
+            <div class="inputGroup">
+                <label for="intensityText">운동 강도 (0-5):</label>
+                <input type="number" id="intensityText" min="0" max="5" value="1">
+                <input type="range" id="intensitySlider" min="0" max="5" value="1">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
